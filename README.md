@@ -1,4 +1,5 @@
-# 🚀 Travel Request Management System  
+# 🚀 Travel Request Management System
+
 
 ---
 
@@ -76,3 +77,51 @@ trigger TravelRequestTrigger on Travel_Request__c (after insert) {
         insert approvalsToCreate;
     }
 }
+🧭 Lightning App Navigation
+Home
+
+Travel Requests
+
+Travel Approvals
+
+Reports
+
+Dashboards
+
+🌐 Integration
+Web-to-Lead HTML Form
+Used to collect data from an external website directly into Salesforce Leads.
+
+html
+Copy code
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000fqnUs" method="POST">
+  <input type=hidden name="oid" value="00DdM00000fqnUs">
+  <input type=hidden name="retURL" value="https://www.salesforce.com/thankyou">
+  <label>First Name</label><input name="first_name" type="text"><br>
+  <label>Last Name</label><input name="last_name" type="text"><br>
+  <label>Email</label><input name="email" type="text"><br>
+  <label>Company</label><input name="company" type="text"><br>
+  <input type="submit" name="submit">
+</form>
+📊 Reports & Dashboards
+Report: Total Travel Requests by Employee
+
+Dashboard: Visual analysis of total travel amount and approvals
+
+🎥 Demo Video
+A walkthrough video demonstrates:
+
+Creating a travel request
+
+Automatic approval creation via trigger
+
+Flow execution and email notification
+
+Reports and Dashboard overview
+
+📎 [https://drive.google.com/file/d/1rs2URxzM0OSJ1ATIlQP3XOdkyJG6XIYf/view?usp=sharing]
+
+🏁 Conclusion
+This Salesforce project showcases end-to-end CRM app development using both declarative and programmatic tools.
+It simplifies travel request management, increases approval efficiency, and enhances visibility through data-driven insights.
+
