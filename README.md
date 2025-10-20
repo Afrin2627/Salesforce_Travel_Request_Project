@@ -1,64 +1,51 @@
-# 🚀 Travel Request Management System
+# ☁️ Salesforce Travel Request Management System  
 
+### 🔹 Cloud-Based CRM Automation Project  
 
----
-
-## 📘 Overview
-
-The **Travel Request Management System** is a Salesforce-based project designed to streamline the process of submitting, approving, and tracking employee travel requests.  
-It automates workflows using Salesforce Flows, Apex triggers, and Email Alerts while providing an intuitive Lightning App interface for easy navigation and management.
+The **Travel Request Management System** is a **Salesforce Cloud Application** that streamlines how employees submit, approve, and track travel requests.  
+It combines **declarative tools (Flows, Email Alerts, Reports)** and **programmatic logic (Apex Trigger)** within a custom **Lightning App** — delivering a complete, automated CRM experience.
 
 ---
 
-## 🧩 Features
-
-- Create and manage **Travel Requests**  
-- Automated **Approval Creation** for high-value requests  
-- **Email Notifications** to approvers for high-amount requests  
-- Custom **Lightning App** for travel management  
-- **Reports and Dashboards** for monitoring expenses  
-- **Web-to-Lead Integration** for capturing external submissions  
-
----
-
-## 🏗️ Tech Stack
-
-| Component | Description |
-|------------|-------------|
-| **Platform** | Salesforce |
-| **Automation Tools** | Flows, Email Alerts |
-| **Backend Logic** | Apex Triggers |
-| **UI Framework** | Lightning App Builder |
-| **Data Management** | Data Import Wizard |
-| **Integration** | Web-to-Lead HTML Form |
-| **Analytics** | Reports & Dashboards |
+## 🧠 Tech Stack Summary
+| Category | Technology / Tool | Description |
+|-----------|------------------|--------------|
+| ☁️ Platform | Salesforce (Force.com) | Cloud-based CRM & low-code platform |
+| ⚙️ Backend Logic | Apex Triggers | Automates approval creation for travel requests |
+| 🔄 Automation | Flows, Email Alerts | Streamlines workflows for high-amount approvals |
+| 💻 UI Layer | Lightning App Builder | Custom navigation & object access |
+| 🌐 Integration | Web-to-Lead Form | Captures leads from external websites |
+| 📊 Analytics | Reports & Dashboards | Monitors travel amounts and approval trends |
+| 📦 Data Tools | Data Import Wizard | Bulk upload and management of records |
 
 ---
 
-## ⚙️ Objects & Relationships
+## 🧩 Core Features
+- 🧾 **Submit & Manage Travel Requests**  
+- ✅ **Automatic Approval Record Creation** for high-value requests (> ₹10,000)  
+- 📧 **Email Notifications** to approvers triggered via Flows  
+- 🖥️ **Lightning App Interface** for centralized management  
+- 📊 **Reports & Dashboards** showing expense insights  
+- 🌐 **Web-to-Lead Integration** for external submissions  
 
-### 🧾 Custom Objects
-1. **Travel_Request__c** – Employee’s travel details (Destination, Dates, Amount, etc.)  
-2. **Travel_Approval__c** – Approval records linked to each travel request  
+---
+
+## ⚙️ Custom Objects & Relationships
+
+### 1️⃣ Travel_Request__c  
+Stores details about each employee’s travel (Destination, Dates, Amount, etc.)
+
+### 2️⃣ Travel_Approval__c  
+Tracks approval status for travel requests.
 
 **Relationship:**  
-→ `Travel_Approval__c.Related_Travel_Request__c` → Lookup relationship to Travel_Request__c  
-
----
-
-## 🔄 Automation
-
-### **1. Flow: Travel Request High Amount Flow**
-- Checks if the `Amount__c > 10000`
-- Sends **Email Alert** to manager for approval
-
-### **2. Email Alert**
-- Template: `High Amount Travel Request Alert`
-- Triggered automatically from the flow
+`Travel_Approval__c.Related_Travel_Request__c → Lookup → Travel_Request__c`
 
 ---
 
 ## 💻 Apex Trigger
+
+Automatically creates an approval record when a travel request exceeds ₹10,000.
 
 ```apex
 trigger TravelRequestTrigger on Travel_Request__c (after insert) {
@@ -77,20 +64,34 @@ trigger TravelRequestTrigger on Travel_Request__c (after insert) {
         insert approvalsToCreate;
     }
 }
+🔄 Automation (Flows & Alerts)
+🧠 Flow: Travel_Request_High_Amount_Flow
+Checks if Amount__c > 10000
+
+Sends email alert to approver
+
+Updates approval record status
+
+✉️ Email Alert
+Template: High Amount Travel Request Alert
+
+Triggered automatically from the Flow
+
 🧭 Lightning App Navigation
-Home
+Includes key navigation tabs:
 
-Travel Requests
+🏠 Home
 
-Travel Approvals
+🚀 Travel Requests
 
-Reports
+✅ Travel Approvals
 
-Dashboards
+📈 Reports
 
-🌐 Integration
-Web-to-Lead HTML Form
-Used to collect data from an external website directly into Salesforce Leads.
+📊 Dashboards
+
+🌐 Integration — Web-to-Lead Form
+Captures leads directly from an external website into Salesforce Leads.
 
 html
 Copy code
@@ -104,24 +105,45 @@ Copy code
   <input type="submit" name="submit">
 </form>
 📊 Reports & Dashboards
-Report: Total Travel Requests by Employee
+Reports:
 
-Dashboard: Visual analysis of total travel amount and approvals
+Total Travel Requests by Employee
+
+High-Amount Requests by Status
+
+Dashboard:
+
+Visual summary of total travel costs and approvals
 
 🎥 Demo Video
-A walkthrough video demonstrates:
+🎬 https://drive.google.com/file/d/1rs2URxzM0OSJ1ATIlQP3XOdkyJG6XIYf/view?usp=sharing
 
-Creating a travel request
+Video Highlights:
 
-Automatic approval creation via trigger
+Creating a new Travel Request
 
-Flow execution and email notification
+Automatic Approval Record generation via Trigger
 
-Reports and Dashboard overview
+Email Notification Flow
 
-📎 [https://drive.google.com/file/d/1rs2URxzM0OSJ1ATIlQP3XOdkyJG6XIYf/view?usp=sharing]
+Dashboard and Report Overview
 
+📁 Folder Structure
+css
+Copy code
+Salesforce_Travel_Request_Project/
+│
+├── README.md
+├── Project_Report.pdf
+├── demo-video.mp4
+├── screenshots/
+│   ├── flow.png
+│   ├── trigger.png
+│   ├── dashboard.png
+│   └── lightning-app.png
+└── web-to-lead.html
 🏁 Conclusion
-This Salesforce project showcases end-to-end CRM app development using both declarative and programmatic tools.
-It simplifies travel request management, increases approval efficiency, and enhances visibility through data-driven insights.
+The Salesforce Travel Request Management System demonstrates end-to-end CRM application development using both Admin and Developer tools.
+It simplifies travel approval workflows, automates manual tasks, and provides analytical insights through Reports and Dashboards.
+This project reflects proficiency in Salesforce Cloud, Automation, Apex, and Integration — essential skills for real-world CRM solutions.
 
